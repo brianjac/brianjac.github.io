@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{hyperref}
+
+\title{On the Limits of Human Knowledge}
+
+\begin{document}
+\maketitle
+\begin{center}
+  \href{../index.html}{All Articles}
+\end{center}
+It is not possible for humanity to know everything there is to know. We can see this by constructing a piece of knowledge that we can prove exists, but which we cannot construct. The one that I like to use is something called Chaitin's Constant.\\
+
+\section{Theorem: Chaitin's Constant is Unknowable}
+For some program encoding (like C, Perl, Lambda Calculus, Turing Machines, etc.), and for every $n$, there exists a value $\Omega_n$ which corresponds to the proportion of programs of length $n$ which terminate. We call this value Chaitin's Constant for that program encoding and that length. I will shorthand as just Chaitin's Constant or $\Omega_n$ for simplicity. We can, in general, neither compute nor prove the value of any of Chaitin's Constants, with exceptions for degenerate cases like programs of length zero, or programs which are too short to have loops represented in our chosen encoding.\\
+
+\subsection{Lemma: The Undecidability of the Halting Problem}
+It is not possible to write a program in a Turing Complete language which determines whether another arbitrary program written in a Turing Complete language eventually halts.\\
+
+\subsection{Proof of Lemma}
+Let \texttt{snooper(p,i)} be a function which returns true if its input program \texttt{p} halts on input \texttt{i}, and false if \texttt{p} runs forever on input \texttt{i}. We can then write a program \texttt{halter()} which takes as input a program \texttt{p}, calls \texttt{snooper(p,p)}, and enters an infinite loop if \texttt{snooper(p,p)} returns true. If \texttt{snooper(p,p)} returns false, \texttt{halter(p)} returns true. Now there are two options: either \texttt{halter(halter)} returns true, or \texttt{halter(halter)} does not terminate. If \texttt{halter(halter)} terminates, returning true, then \texttt{snooper(halter,halter)} must return false, implying that \texttt{halter(halter)} does not terminate. If \texttt{halter(halter)} does not terminate, then \texttt{snooper(halter,halter)} must return true, implying \texttt{halter(halter)} does terminate. Either way, we have a contradiction that arises from the existence of the \texttt{snooper program.} Therefore we cannot write this \texttt{snooper} program; its existence leads to a contradiction.\\
+
+\textit{Brief addendum: This proof is a bear to get right, and I've probably missed some details somewhere. If you want a more fleshed out and complete version, I recommend looking one up somewhere else. If you're happy with this sketch, feel free to read on.}\\
+
+\subsection{Proof of our Theorem:}
+By Lemma 0, we cannot write a program which determines whether or not an input program halts without violating the rule that snooper-like programs cannot exist. If we know Chaitin's constant $\Omega_n,$ then we can write such a program in the following way, assuming we are attempting to determine the halting of a program of length $n:$\\
+
+\begin{enumerate}[1.]
+\item Enumerate all possible programs of length $n.$
+\item Execute one instruction from each program in sequence.
+\item Check your ratio of programs which have terminated over all programs.
+\item If that ratio matches $\Omega_n$ to enough decimal places that adding a single newly terminating program to the ratio would cause it to go over $\Omega_n,$ then the program we are interested in must not terminate and we can return that it does not halt. Alternately, if the program has halted, we can return that it halts.
+\item If neither of the above cases hold, then we go back to 2.
+\end{enumerate}
+
+Essentially, what's happening here is we are conducting a parallel search for all terminating programs, where we know we are done when we have reached Chaitin's Constant. Since this is a snooper-like program (even though it would run in a truly horrendous amount of real-world computation time, even if you have a \textit{really} fast computer) it cannot exist. Since its existence is predicated on our knowledge of Chaitin's constant, we cannot mathematically prove the value of Chatin's constant. If we can't prove a value correct in any way, we cannot say it is correct, and therefore we cannot “know” it. QED
+\end{document}
