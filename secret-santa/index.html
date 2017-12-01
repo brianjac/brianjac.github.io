@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head> 
+   <title>Roasting Secret Santa in an Induction Furnace</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- fn-in,html --> 
+<meta name="src" content="secret-santa.tex"> 
+<meta name="date" content="2017-11-30 19:40:00"> 
+<link rel="stylesheet" type="text/css" href="secret-santa.css"> 
+ <!-- Global Site Tag (gtag.js) - Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107695556-1"></script> 
+<script> 
+window.dataLayer = window.dataLayer || []; 
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date()); 
+gtag('config', 'UA-107695556-1'); 
+</script> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class="titleHead">Roasting Secret Santa in an Induction Furnace</h2>
+<div class="author" ></div><br />
+<div class="date" ><span 
+class="cmr-12">November 30th, 2017</span></div>
+   </div>
+<div class="center" 
+>
+<!--l. 14--><p class="noindent" >
+<!--l. 15--><p class="noindent" ><a 
+href="../index.html" >All Articles</a></div>
+<!--l. 18--><p class="indent" >   Firstly, an observation: I&#8217;m terrible at finishing things that I start writing.
+I currently have four half-written posts just laying around, waiting to be
+finished. I can&#8217;t help it; I start to write about something, and then I just
+have to read a quick paper so that I can talk about a proof, and then I
+just need to do a bit of data analysis to verify something, and then I never
+get around to the actual writing part. So, to keep things moving, here&#8217;s a
+quick question that my brother asked me, and some commentary on problem
+solving:<br 
+class="newline" />
+   <div class="fbox">&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;                       <div class="minipage">How many relationships do you need to know in a secret santa
+network<span class="footnote-mark"><a 
+href="#fn1x2" id="fn1x2-bk"><sup class="textsuperscript">a</sup></a></span><a 
+ id="x1-2f0"></a>
+before you can infer the remaining relationships? More generally, what techniques
+would one use to approach such a problem?<br 
+class="newline" />
+                                                                                                       <div class="flushright" 
+>
+<!--l. 28--><p class="noindent" >
+                                                                 &#8212; My brother (paraphrased)</div></div> </div>
+<!--l. 30--><p class="indent" >   The first step is to make sure that the problem is unambiguously defined.
+We can observe that a secret santa group is essentially a directed graph
+where each node has one in-degree and one out-degree. We cannot have any
+node point to itself. We might or might not allow two nodes to point to
+each other, or, in general, have unconnected portions of the graph. At this
+point, I had to ask which it was. He told me that two nodes could point to
+each other if I wanted them to. This was enough detail that I felt that I
+                                                                  
+
+                                                                  
+understood the problem in an unambiguous way: I had a mathematical model
+that captured the essential elements of the question without any extraneous
+detail. I prefer this sort of abstraction, but it&#8217;s not necessarily important to
+answering the question. The important part was that it led me to the detail
+about whether there could be two nodes pointing to each other, because I
+remembered that connectedness was a sometimes-important property of
+graphs.<br 
+class="newline" />
+<!--l. 32--><p class="indent" >   The second step I took was to try some small cases. This is an incredibly valuable
+part of problem solving, as it allows you to ensure that you understand the problem,
+and often shows patterns that can lead to insights. In this case, I started with the
+smallest possible secret santa network, the one with only two people in it.
+In this case, since a person cannot be giving a gift to themselves, there is
+only one possible target for them: the other person. In this case, you do not
+need to know any relationships ahead of time to infer all of the remaining
+relationships.<br 
+class="newline" />
+<div class="center" 
+>
+<!--l. 34--><p class="noindent" >
+<!--l. 41--><p class="noindent" ><object data="secret-santa-1.svg" width="125.58682 " height="49.7131 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br />
+<span 
+class="cmti-10">The only possible network with two members.</span></div>
+<!--l. 45--><p class="indent" >   In the case of three people, it gets more interesting. If we know two of the
+relationships, then the third must be known, since there is only one person not yet
+receiving a gift, and one person not yet supplying one. If we know only one, however,
+we run into a fork. Let our three people be Alice, Bob, and Carol. Without loss of
+generality<span class="footnote-mark"><a 
+href="#fn1x0" id="fn1x0-bk"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-3f1"></a>,
+let us say that we know that Alice is giving Bob a gift. If Bob is giving Alice a gift,
+then Carol has no targets other than herself for gift-giving. This is disallowed, so
+knowing that Alice is giving Bob a gift must imply that Bob&#8217;s gift is going to Carol.
+Only Alice remains as a gift-giving target, so Carol&#8217;s gift must be going to
+her.<br 
+class="newline" />
+<div class="center" 
+>
+<!--l. 47--><p class="noindent" >
+                                                                  
+
+                                                                  
+<!--l. 56--><p class="noindent" ><object data="secret-santa-2.svg" width="157.01482 " height="103.36397 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br />
+<span 
+class="cmti-10">Solid arrows are known, dashed arrows are inferred.</span></div>
+<!--l. 60--><p class="indent" >   In the case of four people (adding Dave to the mix), knowing one relationship is
+insufficient. We say without loss of generality again that we know that Alice is giving
+Bob a gift. Bob could then be giving a gift to Alice, leaving Carol and Dave to
+exchange gifts, or Bob could be giving a gift to Carol, leaving Dave to give Alice her
+gift. Other cases might be possible (for example, Bob could be giving to Dave) but
+having two is enough to demonstrate that we cannot solve a four person network by
+knowing only one relationship.<br 
+class="newline" />
+<div class="center" 
+>
+<!--l. 62--><p class="noindent" >
+<!--l. 74--><p class="noindent" ><object data="secret-santa-3.svg" width="219.4848 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;                                            <object data="secret-santa-4.svg" width="219.4848 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+                                                                  
+
+                                                                  
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;                                            <object data="secret-santa-5.svg" width="144.55525 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br />
+<span 
+class="cmti-10">Three posibilities when Alice </span><span 
+class="cmsy-10">&rarr; </span><span 
+class="cmti-10">Bob</span></div>
+<!--l. 103--><p class="indent" >   If we know two relationships, then can we solve the network? If Bob is giving
+Alice a gift in return, then yes, since the rest of the network is just another instance
+of the two person case. However, if Bob chooses to give a gift to (without loss of
+generality) Carol, then there remain two possible targets for Carol: Alice
+and Dave. If she gives to Alice, however, then Dave is both the last person
+without a gift, and without a gift-giving target. So she has to be giving to
+Dave. So knowing two relationships was sufficient to infer the remaining
+two.<br 
+class="newline" />
+<!--l. 105--><p class="indent" >   At this point, a pattern has emerged. We can see that in all cases, the valid networks
+have cycles<span class="footnote-mark"><a 
+href="#fn2x0" id="fn2x0-bk"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-4f2"></a>
+in them. Not everyone is necessarily included in every cycle: for example look at the
+case in the four person network where Alice and Bob are exchanging gifts
+independently of Carol and Dave&#8217;s exchange. Is this a property that all networks
+must uphold? In order to answer a question like that, we can try to construct a
+counterexample. Either we succeed, and we demonstrate that the claim is false, or we
+fail, and hopefully do so in such a way as to motivate a proof that failure was
+inevitable.<br 
+class="newline" />
+<!--l. 107--><p class="indent" >   What would a network where someone was not part of a cycle look like?
+We would have to be able to traverse gift-giving relationships to get from
+one person to another, but not back. Let us say that Alice is giving a gift
+to Bob (or possibly to someone who is giving a gift to Bob, and so on.)
+Bob cannot give a gift to any member of the chain of gift-givers leading
+between Alice and himself, because each of those people is receiving a gift
+from the previous person in the chain. He cannot give a gift to Alice, since
+then he would be completing a cycle. So he must give a gift to someone
+who has not yet been described, unless there are no people left. If there
+are no people left, then we are done. We have to form a cycle by giving to
+Alice. Otherwise, we can pick a new person for Bob to give a gift to from the
+remaining pool. This person, however, cannot give to Bob, or any of the other
+people in the chain, and he cannot give to Alice. We can call him the new
+Bob, and now we have the same situation as before, except there is one
+less person in the pool of people who have not yet been gift recipients. By
+                                                                  
+
+                                                                  
+induction, we know that eventually one of the remaining people must return to
+Alice<span class="footnote-mark"><a 
+href="#fn3x0" id="fn3x0-bk"><sup class="textsuperscript">3</sup></a></span><a 
+ id="x1-5f3"></a>.
+We can repeat this process of extending the chain until the pool of free people is
+empty.<br 
+class="newline" />
+<!--l. 109--><p class="indent" >   This tells us that if Alice can reach Bob by a chain of gift-giving, then Bob can
+reach Alice as well, for any &#8220;Alice&#8221; and &#8220;Bob&#8221; in the network. So all secret santa
+networks must contain one or more cycles. How, if at all, is this useful? The nice
+thing about cycles is that we can add an additional person to a cycle by taking one
+relationship, for example Carol <span 
+class="cmsy-10">&rarr; </span>Dave, and simply inserting our interloper, Ellen, in
+the middle of it, getting Carol <span 
+class="cmsy-10">&rarr; </span>Ellen <span 
+class="cmsy-10">&rarr; </span>Dave. So if we cannot solve a particular
+network, we can always make it bigger without increasing the number of
+unknown&#8212;but derivable&#8212;edges by adding more known relationships to the network
+in a known part of the cycle. We can also introduce an independent cycle to the
+graph, all of which we know, and none of which helps us with the unknown
+parts.<br 
+class="newline" />
+<!--l. 111--><p class="indent" >   In the four person case, we ran into trouble because Carol and Dave were
+interchangeable. We can construct an equivalent case with five people by adding
+Ellen in between Alice and Bob. For six people (adding Finn) we can split off Ellen
+and Finn into their own cycle, and get stuck with the same four person Alice, Bob,
+Carol and Dave network. We can then add as many people as we want to the Ellen
+and Finn network without affecting our inability to solve the four person
+cycle.<br 
+class="newline" />
+<div class="center" 
+>
+<!--l. 113--><p class="noindent" >
+<!--l. 129--><p class="noindent" ><object data="secret-santa-6.svg" width="286.54839 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+                                                                  
+
+                                                                  
+&#x00A0;&#x00A0;&#x00A0;&#x00A0;&#x00A0;                                            <object data="secret-santa-7.svg" width="239.3974 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<br />
+<span 
+class="cmti-10">Adding Ellen and Finn to our four person network.</span></div>
+<!--l. 148--><p class="indent" >   So, for any network greater than four people, the number of relationships that can
+be unknown in a solvable network is the same as the number of relationships that can
+be unknown in a four person network. Which, as we discovered above, is
+two.<br 
+class="newline" />
+<!--l. 150--><p class="indent" >   To recap, we tried to formalize the problem, tried some small cases until we hit an
+interesting pattern, proved that the pattern held using induction, and then used that
+pattern to answer the question, again using induction. If we had gotten stuck on the
+proof of the pattern, we could have gone into the literature and found a proof, since
+we had a mathematical model for the problem. I will leave you with an
+exercise: how does disallowing relationships with return gifts, for example where
+Alice gives Bob a gift, and then Bob gives Alice a return gift, affect our
+answer?<br 
+class="newline" /><div class="footnotes"><!--l. 28--><p class="noindent" ><span class="footnote-mark"><a 
+href="#fn1x2-bk" id="fn1x2"><sup class="textsuperscript">a</sup></a></span><span 
+class="cmr-8">For the unfamiliar, a secret santa gift exchange has every member randomly assigned a</span>
+<span 
+class="cmr-8">different member to give a gift to. It&#8217;s useful in, e.g., office settings where you don&#8217;t want</span>
+<span 
+class="cmr-8">people&#8217;s likes and dislikes for each other to result in imbalanced gift giving.</span>
+<!--l. 45--><p class="indent" >   <span class="footnote-mark"><a 
+href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span><span 
+class="cmr-8">This is a really handy phrase for these sorts of hypotheticals. Essentially, what I mean by</span>
+<span 
+class="cmr-8">this is that the names are not important, and that we could instead choose to the names differently</span>
+<span 
+class="cmr-8">to represent any choice of initially known relationship. We might say instead that all cases are</span>
+<span 
+class="cmr-8">isomorphic to each other, but that takes longer.</span>
+<!--l. 105--><p class="indent" >   <span class="footnote-mark"><a 
+href="#fn2x0-bk" id="fn2x0"><sup class="textsuperscript">2</sup></a></span><span 
+class="cmr-8">By cycle, we here mean a chain of gift-giving relationships where you eventually return to</span>
+<span 
+class="cmr-8">the start of the chain.</span>
+<!--l. 107--><p class="indent" >   <span class="footnote-mark"><a 
+href="#fn3x0-bk" id="fn3x0"><sup class="textsuperscript">3</sup></a></span><span 
+class="cmr-8">Incidentally, this result is something that I remember proving in a graph theory</span>
+<span 
+class="cmr-8">class, towards the beginning of a semester. This is why knowing some math is helpful in</span>
+<span 
+class="cmr-8">deriving more math. Oftentimes you can skip steps in your proof by describing them in</span>
+<span 
+class="cmr-8">terms of an existing theorem and then leveraging that result without having to re-proving</span>
+<span 
+class="cmr-8">it.</span>                                                                </div>
+ 
+</body></html> 
+
+                                                                  
+
+                                                                  
+                                                                  
+
+
