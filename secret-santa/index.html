@@ -8,7 +8,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- fn-in,html --> 
 <meta name="src" content="secret-santa.tex"> 
-<meta name="date" content="2017-11-30 19:40:00"> 
+<meta name="date" content="2017-11-30 20:30:00"> 
 <link rel="stylesheet" type="text/css" href="secret-santa.css"> 
  <!-- Global Site Tag (gtag.js) - Google Analytics --> 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107695556-1"></script> 
@@ -146,7 +146,14 @@ without a gift, and without a gift-giving target. So she has to be giving to
 Dave. So knowing two relationships was sufficient to infer the remaining
 two.<br 
 class="newline" />
-<!--l. 105--><p class="indent" >   At this point, a pattern has emerged. We can see that in all cases, the valid networks
+<!--l. 105--><p class="indent" >   <span 
+class="cmti-10">Edited to add: </span>my brother pointed out, after reading this, a case where knowing
+two edges does not help you: when you know two edges that are disconnected, you do
+not know whether this is because there are two isolated pairs of gift exchangers, or
+one cycle containing all of the members. So the number of relationships you need to
+know for the four person case is three.<br 
+class="newline" />
+<!--l. 107--><p class="indent" >   At this point, a pattern has emerged. We can see that in all cases, the valid networks
 have cycles<span class="footnote-mark"><a 
 href="#fn2x0" id="fn2x0-bk"><sup class="textsuperscript">2</sup></a></span><a 
  id="x1-4f2"></a>
@@ -158,7 +165,7 @@ counterexample. Either we succeed, and we demonstrate that the claim is false, o
 fail, and hopefully do so in such a way as to motivate a proof that failure was
 inevitable.<br 
 class="newline" />
-<!--l. 107--><p class="indent" >   What would a network where someone was not part of a cycle look like?
+<!--l. 109--><p class="indent" >   What would a network where someone was not part of a cycle look like?
 We would have to be able to traverse gift-giving relationships to get from
 one person to another, but not back. Let us say that Alice is giving a gift
 to Bob (or possibly to someone who is giving a gift to Bob, and so on.)
@@ -167,15 +174,15 @@ between Alice and himself, because each of those people is receiving a gift
 from the previous person in the chain. He cannot give a gift to Alice, since
 then he would be completing a cycle. So he must give a gift to someone
 who has not yet been described, unless there are no people left. If there
+                                                                  
+
+                                                                  
 are no people left, then we are done. We have to form a cycle by giving to
 Alice. Otherwise, we can pick a new person for Bob to give a gift to from the
 remaining pool. This person, however, cannot give to Bob, or any of the other
 people in the chain, and he cannot give to Alice. We can call him the new
 Bob, and now we have the same situation as before, except there is one
 less person in the pool of people who have not yet been gift recipients. By
-                                                                  
-
-                                                                  
 induction, we know that eventually one of the remaining people must return to
 Alice<span class="footnote-mark"><a 
 href="#fn3x0" id="fn3x0-bk"><sup class="textsuperscript">3</sup></a></span><a 
@@ -183,7 +190,7 @@ href="#fn3x0" id="fn3x0-bk"><sup class="textsuperscript">3</sup></a></span><a
 We can repeat this process of extending the chain until the pool of free people is
 empty.<br 
 class="newline" />
-<!--l. 109--><p class="indent" >   This tells us that if Alice can reach Bob by a chain of gift-giving, then Bob can
+<!--l. 111--><p class="indent" >   This tells us that if Alice can reach Bob by a chain of gift-giving, then Bob can
 reach Alice as well, for any &#8220;Alice&#8221; and &#8220;Bob&#8221; in the network. So all secret santa
 networks must contain one or more cycles. How, if at all, is this useful? The nice
 thing about cycles is that we can add an additional person to a cycle by taking one
@@ -198,7 +205,7 @@ in a known part of the cycle. We can also introduce an independent cycle to the
 graph, all of which we know, and none of which helps us with the unknown
 parts.<br 
 class="newline" />
-<!--l. 111--><p class="indent" >   In the four person case, we ran into trouble because Carol and Dave were
+<!--l. 113--><p class="indent" >   In the four person case, we ran into trouble because Carol and Dave were
 interchangeable. We can construct an equivalent case with five people by adding
 Ellen in between Alice and Bob. For six people (adding Finn) we can split off Ellen
 and Finn into their own cycle, and get stuck with the same four person Alice, Bob,
@@ -208,8 +215,8 @@ cycle.<br
 class="newline" />
 <div class="center" 
 >
-<!--l. 113--><p class="noindent" >
-<!--l. 129--><p class="noindent" ><object data="secret-santa-6.svg" width="286.54839 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
+<!--l. 115--><p class="noindent" >
+<!--l. 131--><p class="noindent" ><object data="secret-santa-6.svg" width="286.54839 " height="144.55525 " type="image/svg+xml"><p>SVG-Viewer needed.</p></object>
                                                                   
 
                                                                   
@@ -217,12 +224,12 @@ class="newline" />
 <br />
 <span 
 class="cmti-10">Adding Ellen and Finn to our four person network.</span></div>
-<!--l. 148--><p class="indent" >   So, for any network greater than four people, the number of relationships that can
+<!--l. 150--><p class="indent" >   So, for any network greater than four people, the number of relationships that can
 be unknown in a solvable network is the same as the number of relationships that can
 be unknown in a four person network. Which, as we discovered above, is
 two.<br 
 class="newline" />
-<!--l. 150--><p class="indent" >   To recap, we tried to formalize the problem, tried some small cases until we hit an
+<!--l. 152--><p class="indent" >   To recap, we tried to formalize the problem, tried some small cases until we hit an
 interesting pattern, proved that the pattern held using induction, and then used that
 pattern to answer the question, again using induction. If we had gotten stuck on the
 proof of the pattern, we could have gone into the literature and found a proof, since
@@ -246,12 +253,12 @@ class="cmr-8">this is that the names are not important, and that we could instea
 class="cmr-8">to represent any choice of initially known relationship. We might say instead that all cases are</span>
 <span 
 class="cmr-8">isomorphic to each other, but that takes longer.</span>
-<!--l. 105--><p class="indent" >   <span class="footnote-mark"><a 
+<!--l. 107--><p class="indent" >   <span class="footnote-mark"><a 
 href="#fn2x0-bk" id="fn2x0"><sup class="textsuperscript">2</sup></a></span><span 
 class="cmr-8">By cycle, we here mean a chain of gift-giving relationships where you eventually return to</span>
 <span 
 class="cmr-8">the start of the chain.</span>
-<!--l. 107--><p class="indent" >   <span class="footnote-mark"><a 
+<!--l. 109--><p class="indent" >   <span class="footnote-mark"><a 
 href="#fn3x0-bk" id="fn3x0"><sup class="textsuperscript">3</sup></a></span><span 
 class="cmr-8">Incidentally, this result is something that I remember proving in a graph theory</span>
 <span 
