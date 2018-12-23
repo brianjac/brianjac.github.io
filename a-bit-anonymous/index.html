@@ -8,7 +8,7 @@
 <meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
 <!-- fn-in,html --> 
 <meta name="src" content="a-bit-anonymous.tex"> 
-<meta name="date" content="2018-12-22 21:39:00"> 
+<meta name="date" content="2018-12-23 10:01:00"> 
 <link rel="stylesheet" type="text/css" href="a-bit-anonymous.css"> 
  <!-- Global Site Tag (gtag.js) - Google Analytics --> 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107695556-1"></script> 
@@ -31,14 +31,14 @@ gtag('config', 'UA-107695556-1');
 <h2 class="titleHead">A Bit of Anonymity</h2>
 <div class="author" ></div><br />
 <div class="date" ><span 
-class="cmr-12">December 22, 2018</span></div>
+class="cmr-12">December 23, 2018</span></div>
    </div>
 <div class="center" 
 >
-<!--l. 9--><p class="noindent" >
-<!--l. 10--><p class="noindent" ><a 
+<!--l. 11--><p class="noindent" >
+<!--l. 12--><p class="noindent" ><a 
 href="../index.html" >All Articles</a></div>
-<!--l. 13--><p class="indent" >   There&#8217;s an interesting paradox that arises when you try to protect your
+<!--l. 15--><p class="indent" >   There&#8217;s an interesting paradox that arises when you try to protect your
 anonymity online. Let&#8217;s say that you want to avoid online tracking, so you set the
 <a 
 href="https://www.eff.org/issues/do-not-track" >&#8220;do not track&#8221; bit</a> and off you go. Anyone who respects Do Not Track will
@@ -47,7 +47,7 @@ much more easily. Paradoxically, cutting out tracking entirely from ethical
 advertisers who respect DNT has made your targeted advertising situation worse
 overall.<br 
 class="newline" />
-<!--l. 15--><p class="indent" >   In order to understand why that is, we need to lay a bit of foundation. Our
+<!--l. 17--><p class="indent" >   In order to understand why that is, we need to lay a bit of foundation. Our
 assumed goal is to minimize the worst targeted advertising. The more accurately
 advertisers can target you, the worse it is for you because you are more likely to be
 affected by the ads. Being vaguely identifiable to a lot of advertisers means
@@ -56,7 +56,7 @@ resonates with you. Being specifically identifiable to a few advertisers means b
 exposed to advertisements that are specifically tailored to be persuasive to you on a
 fairly regular basis.<br 
 class="newline" />
-<!--l. 17--><p class="indent" >   The problem is in the way that you are tracked online. Advertisers can
+<!--l. 19--><p class="indent" >   The problem is in the way that you are tracked online. Advertisers can
 keep track of your browsing in several ways. Perhaps the most simple is to
 simply ask you to identify yourself. This is done by sending your browser a
 cookie&#8212;a file containing some arbitrary data&#8212;for their website. Then, when
@@ -70,7 +70,7 @@ incentive to track people even when they do not want to be tracked, so if
 you don&#8217;t play nice with the cookie they move on to more sophisticated
 methods.<br 
 class="newline" />
-<!--l. 19--><p class="indent" >   Every time you connect to a website, you send all sorts of information. Just to
+<!--l. 21--><p class="indent" >   Every time you connect to a website, you send all sorts of information. Just to
 initiate the connection, you need to provide your IP address. Otherwise, the web
 server wouldn&#8217;t even be able to send you back the page you wanted to see. You
 provide something called a user agent string which identifies your web browser and
@@ -82,7 +82,7 @@ displayed properly. The page can check whether you have a webcam installed, and
 what features it supports. The page can check whether you have Flash or HTML5
 support.<br 
 class="newline" />
-<!--l. 21--><p class="indent" >   Sometimes information is leaked unintentionally as well. For example, there is a
+<!--l. 23--><p class="indent" >   Sometimes information is leaked unintentionally as well. For example, there is a
 feature of web browsers that they will color hyperlinks differently depending on
 whether or not you&#8217;ve visited the page they link to. This is extremely helpful if you
 are trying to navigate a page with a lot of links, and you are trying to keep track of
@@ -91,7 +91,7 @@ information was discoverable by the page itself, which lead to websites being
 essentially able to query your browser history by trying to color a bunch of different
 links to popular websites.<br 
 class="newline" />
-<!--l. 23--><p class="indent" >   All of these things individually are features that are shared by a large
+<!--l. 25--><p class="indent" >   All of these things individually are features that are shared by a large
 number of people. Pretty much everyone has approximately the same set
 of fonts installed, and uses one of a fairly modest set of browser versions.
 Taken in aggregate, we call all of these signals a &#8220;browser fingerprint,&#8221; and
@@ -102,7 +102,7 @@ Track bit, setting it makes you more trackable since the tracker can rule out
 any of their profiles that don&#8217;t have that bit set while trying to identify
 you.<br 
 class="newline" />
-<!--l. 25--><p class="indent" >   We can do some more formal analysis of how much more trackable it makes us
+<!--l. 27--><p class="indent" >   We can do some more formal analysis of how much more trackable it makes us
 by thinking about our anonymity as a proportion of the total population.
 There are approximately 7 billion people on the planet. Around half of
 them<span class="footnote-mark"><a 
@@ -124,16 +124,15 @@ information strips away, we can think about how many bits of that ID number it
 
                                                                   
 could determine. If half the planet uses Firefox, and the other half uses
-Chrome, then knowing which browser a person is using strips away 50% of
-their anonymity, or 17<span 
-class="cmmi-10">.</span>5 bits. Doing something really outside of the norm,
+Chrome, then knowing which browser a person is using strips away 50%
+of their anonymity, or 1 bit. Doing something really outside of the norm,
 like having a bunch of rare, curated fonts or a nonstandard size browser
-window will blow away essentially all of your bits of anonymity, since the
-pool of people who also have your same setup is so small. Using a version
-of a browser that is too old, or too up to date, might only cost a bit or
-two.<br 
+window will blow away essentially all of your bits of anonymity, since the pool
+of people who also have your same setup is so small. Using a version of a
+browser that is too old, or too up to date, might only cost a fraction of a
+bit.<br 
 class="newline" />
-<!--l. 27--><p class="indent" >   Why not just compare percentages directly, instead of converting into bits first?
+<!--l. 29--><p class="indent" >   Why not just compare percentages directly, instead of converting into bits first?
 The benefit we get from the bits of anonymity metric is that we can compare the
 privacy implications of different actions across different spaces. If you are in a small
 community, you have much fewer bits of anonymity to spend, and so something that
@@ -142,18 +141,22 @@ forum who uses an obscure browser will uniquely identify you, but you can still 
 the analysis of how many bits it costs by using population numbers pulled from the
 global population.<br 
 class="newline" />
-<!--l. 29--><p class="indent" >   We can use this metric to compare decisions that we might make related to our
+<!--l. 31--><p class="indent" >   We can use this metric to compare decisions that we might make related to our
 online anonymity as well. If 90% of users don&#8217;t use Do Not Track, then setting it
-costs <span 
-class="cmsy-10">&#x2248; </span>29 bits of anonymity. If you&#8217;re using desktop chrome, that costs <span 
-class="cmsy-10">&#x2248; </span>19<span 
-class="cmmi-10">.</span>8 bits,
-since Chrome has around 60% desktop market share. Safari has 17%, so that&#8217;s <span 
-class="cmsy-10">&#x2248; </span>27<span 
-class="cmmi-10">.</span>4
-bits.<br 
+costs log <sub><span 
+class="cmr-7">2</span></sub>1<span 
+class="cmmi-10">&#x2215;</span>0<span 
+class="cmmi-10">.</span>1 <span 
+class="msbm-10">&#x224A; </span>3<span 
+class="cmmi-10">.</span>3 bits of anonymity. If you&#8217;re using desktop chrome, that costs
+<span 
+class="cmsy-10">&#x2248; </span>0<span 
+class="cmmi-10">.</span>73 bits, since Chrome has around 60% desktop market share. Safari has 17%, so
+that&#8217;s <span 
+class="cmsy-10">&#x2248; </span>2<span 
+class="cmmi-10">.</span>5 bits.<br 
 class="newline" />
-<!--l. 31--><p class="indent" >   If you truly want to be anonymous online, then you have two options: either you
+<!--l. 33--><p class="indent" >   If you truly want to be anonymous online, then you have two options: either you
 have an entirely default configuration with the most standard browser size and
 version, the most general IP address you can use (which probably means a popular
 VPN), no fonts, a clean, unmodifed version of the browser with no history or
@@ -166,7 +169,7 @@ advertisers, think about how many bits of anonymity it strips away if it goes
 wrong, and whether that&#8217;s more bits than you&#8217;d lose just by using a default
 setup.<br 
 class="newline" />
-   <div class="footnotes"><!--l. 25--><p class="indent" >    <span class="footnote-mark"><a 
+   <div class="footnotes"><!--l. 27--><p class="indent" >    <span class="footnote-mark"><a 
 href="#fn1x0-bk" id="fn1x0"><sup class="textsuperscript">1</sup></a></span><a 
 href="https://en.wikipedia.org/wiki/Global_Internet_usage" class="url" ><span 
 class="cmtt-8">https://en.wikipedia.org/wiki/Global_Internet_usage</span></a>                       </div>
