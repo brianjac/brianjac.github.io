@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\title{Approximate Sorting Algorithms}
+
+\begin{document}
+\maketitle
+\begin{center}
+\href{../index.html}{All Articles}
+\end{center}
+
+Is it possible achieve a better than $O(n^2)$ bounding for sorting a list if you only care about the list being approximately sorted? First question: what does ``approximately'' mean here? One possible definition is that no element is more than $m$ positions away from its correct location. Another is that $x\%$ of all elements are in their correct position, and the remaining $1-x\%$ can be anywhere. I feel like the second definition leads down a weird path where we either know which elements are out of position and can then recursively sort them or we don't know which ones are out of position and any individual element is untrustworthy. Neither of those things seem as useful as being able to say that no element is ``too far out of place.''\\
+
+If such an algorithm existed, then we could run it (at some bound better than $O(n^2)$), followed by a single scan through all of the $m$ sized blocks to sort them using an exact sort. The overall complexity of that algorithm is the complexity of the first part which we defined to be sub-quadratic plus the complexity of the scan, which is $O(n \cdot m^2)$ and also sub-quadratic. So the existance of this algorithm implies the existance of a sub-quadratic sorting algorithm. I don't know offhand whether those are proven forbidden or just not known, but since none are currently known to exist, I'd be willing to say that:\\
+
+\begin{enumerate}[1.]
+\item Approximate sorting probably does not exist in the literature already.
+\item I am not likely to find an algorithm for it myself.
+\end{enumerate}
+
+Sometimes there's value in realizing quickly that you're not going to find a solution to a problem. It allows you to shift your focus from things that you can't change, to things that you can. If I desperately needed better than quadratic approximate sorting I could have spent a lot of time trying things and failing. Or, I could first spend a few minutes evaluating how hard the problem is first and realize that I need to address whatever need I have for such an algorithm in a different way.\\
+
+\end{document}

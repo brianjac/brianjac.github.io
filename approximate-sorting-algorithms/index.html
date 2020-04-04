@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head> 
+   <title>Approximate Sorting Algorithms</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.tug.org/tex4ht/)"> 
+<!-- fn-in,html --> 
+<meta name="src" content="approximate-sorting-algorithms.tex"> 
+<link rel="stylesheet" type="text/css" href="approximate-sorting-algorithms.css"> 
+ <!-- Global Site Tag (gtag.js) - Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107695556-1"></script> 
+<script> 
+window.dataLayer = window.dataLayer || []; 
+function gtag(){dataLayer.push(arguments);} 
+gtag('js', new Date()); 
+gtag('config', 'UA-107695556-1'); 
+</script> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class="titleHead">Approximate Sorting Algorithms</h2>
+<div class="author" ></div><br />
+<div class="date" ><span 
+class="cmr-12">April 4, 2020</span></div>
+   </div>
+<div class="center" 
+>
+<!--l. 9--><p class="noindent" >
+<!--l. 10--><p class="noindent" ><a 
+href="../index.html" >All Articles</a></div>
+<!--l. 13--><p class="indent" >   Is it possible achieve a better than <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">n</span><sup><span 
+class="cmr-7">2</span></sup>) bounding for sorting a list if you only
+care about the list being approximately sorted? First question: what does
+&#8220;approximately&#8221; mean here? One possible definition is that no element is more than
+<span 
+class="cmmi-10">m </span>positions away from its correct location. Another is that <span 
+class="cmmi-10">x</span>% of all elements are in
+their correct position, and the remaining 1 <span 
+class="cmsy-10">- </span><span 
+class="cmmi-10">x</span>% can be anywhere. I feel like the
+second definition leads down a weird path where we either know which elements are
+out of position and can then recursively sort them or we don&#8217;t know which ones are
+out of position and any individual element is untrustworthy. Neither of those
+things seem as useful as being able to say that no element is &#8220;too far out of
+place.&#8221;<br 
+class="newline" />
+<!--l. 15--><p class="indent" >   If such an algorithm existed, then we could run it (at some bound better than
+<span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">n</span><sup><span 
+class="cmr-7">2</span></sup>)), followed by a single scan through all of the <span 
+class="cmmi-10">m </span>sized blocks to sort
+them using an exact sort. The overall complexity of that algorithm is the
+complexity of the first part which we defined to be sub-quadratic plus the
+complexity of the scan, which is <span 
+class="cmmi-10">O</span>(<span 
+class="cmmi-10">n </span><span 
+class="cmsy-10">&#x22C5; </span><span 
+class="cmmi-10">m</span><sup><span 
+class="cmr-7">2</span></sup>) and also sub-quadratic. So the
+existance of this algorithm implies the existance of a sub-quadratic sorting
+algorithm. I don&#8217;t know offhand whether those are proven forbidden or just not
+known, but since none are currently known to exist, I&#8217;d be willing to say
+that:<br 
+class="newline" />
+  <dl class="enumerate"><dt class="enumerate">
+1. </dt><dd 
+class="enumerate">Approximate sorting probably does not exist in the literature already.
+                                                                  
+
+                                                                  
+  </dd><dt class="enumerate">
+2. </dt><dd 
+class="enumerate">I am not likely to find an algorithm for it myself.</dd></dl>
+<!--l. 22--><p class="indent" >   Sometimes there&#8217;s value in realizing quickly that you&#8217;re not going to find a
+solution to a problem. It allows you to shift your focus from things that you can&#8217;t
+change, to things that you can. If I desperately needed better than quadratic
+approximate sorting I could have spent a lot of time trying things and failing. Or, I
+could first spend a few minutes evaluating how hard the problem is first and realize
+that I need to address whatever need I have for such an algorithm in a different
+way.<br 
+class="newline" />
+    
+</body></html> 
+
+                                                                  
+
+
